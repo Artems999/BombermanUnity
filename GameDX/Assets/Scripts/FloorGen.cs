@@ -6,30 +6,23 @@ public class FloorGen : MonoBehaviour
 {
     public GameObject tile;
 
-    private int floorSizeX = 15;
-    private int floorSizeZ = 15;
     private float levelHeight = 0.0f;
-    private float tileSizeX;
-    private float tileSizeZ;
-
+    //private GameSet gs = new GameSet();
           
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 localSize = tile.transform.localScale;
-        tileSizeX = localSize.x;
-        tileSizeZ = localSize.z;
         GenFloor();
-
     }
 
     void GenFloor()
     {
-        for (int i = 0; i < floorSizeX; i++)
+        var gs = GameSet.Default;
+        for (int i = 0; i < gs.FieldSizeX; i++)
         {
-            for (int j = 0; j < floorSizeZ; j++)
+            for (int j = 0; j < gs.FieldSizeZ; j++)
             {
-                Instantiate(tile, new Vector3(i * tileSizeX, levelHeight, j * tileSizeZ), Quaternion.identity);
+                Instantiate(tile, new Vector3(i * gs.TileSizeX, levelHeight, j * gs.TileSizeZ), Quaternion.identity);
             }
         }
     }

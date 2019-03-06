@@ -1,37 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿public class GameSet
+{
+    public static GameSet Default { get; } = new GameSet();
 
-public class GameSet : MonoBehaviour
-{/*
-    public int FieldSizeX;
-    private int fieldSizeZ;
-    private float tileSizeX;
-    private float tileSizeZ;
+    public int FieldSizeX { get; } = 15;
 
-   public int FieldSizeX
-    {
-        get { return fieldSizeX; }
-    }
-    public int FieldSizeZ
-    {
-        get { return fieldSizeZ; }
-    }
-    public float TileSizeX
-    {
-        get { return tileSizeX; }
-    }
-                
-    public float TileSizeZ
-    {
-        get { return tileSizeZ; }
-    }
 
-    void Start()
-    {
-        fieldSizeX = 15;
-        fieldSizeZ = 15;
-        tileSizeX = 2.0f;
-        tileSizeZ = 2.0f;
-    }*/
+    public int FieldSizeZ { get; } = 15;
+
+    public float TileSizeX { get; } = 2.0f;
+
+    public float TileSizeZ { get; } = 2.0f;
+
+
 }
