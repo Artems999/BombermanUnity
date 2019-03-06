@@ -4,12 +4,13 @@
 
     public int FieldSizeX { get; } = 15;
 
-
     public int FieldSizeZ { get; } = 15;
 
     public float TileSizeX { get; } = 2.0f;
 
     public float TileSizeZ { get; } = 2.0f;
+
+    public int CollapsingWalls { get; } = 35;
 
 
 }

@@ -268,9 +268,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55b5e0946bba164bb5925b9fdb398b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainWallTile: {fileID: 4487348431179550393, guid: 6add59b7ec9cdfa488024152683d1f14,
+  StaticWallsPrefab: {fileID: 4487348431179550393, guid: 6add59b7ec9cdfa488024152683d1f14,
     type: 3}
-  randWallTile: {fileID: 414685553552854683, guid: 387175bc70eb0364196c36d342daeb80,
+  CollapsingWallsPrefab: {fileID: 414685553552854683, guid: 387175bc70eb0364196c36d342daeb80,
     type: 3}
   playerPrefab: {fileID: 5368023646652123161, guid: de21d1b1ca39fd44fbccb9a8326be354,
     type: 3}
