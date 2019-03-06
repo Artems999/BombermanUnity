@@ -38,7 +38,7 @@ public class ObjectSpawner : MonoBehaviour
                     Instantiate(CollapsingWallsPrefab, new Vector3(i * gs.TileSizeX, levelHeight, j * gs.TileSizeZ),
                         Quaternion.identity);
                 }
-                else if (field[i, j] == 9)
+                else if(field[i,j] == 9)
                 {
                     Instantiate(playerPrefab, new Vector3(i * gs.TileSizeX, levelHeight, j * gs.TileSizeZ),
                         Quaternion.identity);

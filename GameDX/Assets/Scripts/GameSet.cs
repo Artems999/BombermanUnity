@@ -2,6 +2,7 @@
 {
     public static GameSet Default { get; } = new GameSet();
 
+
     public int FieldSizeX { get; } = 15;
 
     public int FieldSizeZ { get; } = 15;
