@@ -9,7 +9,7 @@ public class Field
 
     public static int[,] GameField { get; private set; }
 
-    public static int[] PlayerPosition { get; set; } = { 0, 0 };
+    public static int[] PlayerPosition { get; set; } = {0, 0};
 
     public void FirstTimeFieldGenerate()
     {
@@ -21,7 +21,7 @@ public class Field
     }
 
 
-
+//Creating walls positions
     void CreateField()
     {
         GameField = new int[gs.FieldSizeX, gs.FieldSizeZ];
@@ -64,6 +64,7 @@ public class Field
         } while (collapsingWalls < gs.CollapsingWalls);
     }
 
+    //Creating persons positions
     void GeneratePlayerPosition()
     {
         WriteToRandomCell(9);
@@ -80,6 +81,7 @@ public class Field
             }
         }
     }
+
     void GenerateEnemyPosition()
     {
         WriteToRandomCell(8);
@@ -117,33 +119,56 @@ public class Field
             return false;
     }
 
-
-
-    public bool MovePlayerForward()
+    public bool MovePlayer(PlayerMoves.Side Side)
     {
         int x = PlayerPosition[0];
         int z = PlayerPosition[1];
-        if (CellIsFree(x, z - 1))
+        bool added = false;
+        switch (Side)
         {
-            PlayerPosition[1] -= 1;
-            GameField[x, z - 1] = 9;
-            return true;
+            case PlayerMoves.Side.Backward:
+                added = AddSomeToField(x - 1, z, 9);
+                if (added)
+                {
+                    PlayerPosition[0]--;
+                }
+                break;
+
+            case PlayerMoves.Side.Forward:
+                added = AddSomeToField(x + 1, z, 9);
+                if (added)
+                {
+                    PlayerPosition[0]++;
+                }
+                break;
+
+            case PlayerMoves.Side.Left:
+                added = AddSomeToField(x, z + 1, 9);
+                if (added)
+                {
+                    PlayerPosition[1]++;
+                }
+                break;
+
+            case PlayerMoves.Side.Right:
+                added = AddSomeToField(x, z - 1, 9);
+                if (added)
+                {
+                    PlayerPosition[1]--;
+                }
+                break;
         }
-        else
-            return false;
-    }
-    public bool MovePlayerBackward()
-    {
-        int x = PlayerPosition[0];
-        int z = PlayerPosition[1];
-        if (CellIsFree(x, z + 1))
+
+        if (added)
         {
-            PlayerPosition[1] += 1;
-            GameField[x, z + 1] = 9;
-            return true;
+            ChangeFieldValue(x, z, 0);
         }
-        else
-            return false;
+
+        return added;
     }
 
+    private void ChangeFieldValue(int x, int z, int value)
+    {
+        GameField[x, z] = value;
+    }
 }
